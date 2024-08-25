@@ -172,7 +172,7 @@ class check_hand:
                 over_cards += 1
 
         #check combos
-        if royal_flush:
+        if royal_flush and flush:
             return 'Роял-флеш'
     
         elif straight and flush:
@@ -212,7 +212,7 @@ class check_hand:
         else:
             return 'Старшая карта'
     
-    def outs(hand, board):
+    def outs():
         outs = 0
     
         if oesd and flush and over_cards == 2:

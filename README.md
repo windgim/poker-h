@@ -1,10 +1,16 @@
-# PokerH Library #
+<h1 align="center">PokerH</h1>
 
-## What is this? ##
 
-This is a library that will help you create a poker game.
+----------
 
-## Library Features ##
+
+# About
+
+## What is this?
+
+This is a module that will help you create a poker game.
+
+## Library Features
 
 Creating deck, hand, board as a list
 
@@ -14,53 +20,91 @@ Print what combos are on the table
 
 Print outs
 
-### Features of printing outs ###
+### Features of printing outs
 
 Outs are calculated exclusively using a table taken from Roy Rounder's book
+
+Outs can only be counted after using `check_hand.combos()`
 
 
 ----------
 
 
-## Using ##
+# Getting Started
+
+## Installation
+
+	pip install poker-h
 
 
-Using this library is very simple and intuitive.
+## Usage
 
-First we have to import everything from the library
 
-	from poker_h import *
+Using this module is very simple and intuitive.
 
+First we have to import everything from the module
+
+``` python
+from poker_h import *
+```
 
 Examples of all functions:
 
 Creating a deck or hand
 
-	d = deck.deck()
-	h = deck.hand(d)
+``` python
+d = deck.deck()
+h = deck.hand(d)
+```
 
 
 To create a board, we must specify a number, this is the number of cards that the program will distribute to the table
 
-	number = 5 #any number
-	b = deck.board(d, number)
+``` python
+number = 5 #any number
+b = deck.board(d, number)
+```
 
 
 To print deck, hand, board, or any other cards in the list
 
-	print(deck.print_cards(d))
+``` python
+print(deck.print_cards(d))
+```
 
 
 To print the combos and how many outs you have (be sure to write hand and board)
 
-	print(check_hand.combos(h, b))
-	print(check_hand.outs(h, b))
+``` python
+print(check_hand.combos(h, b))
+print(check_hand.outs())
+```
 
 
 ----------
 
 
-## Developer ##
+## Example
+``` python
+from main import *
+
+d = deck.deck()
+
+b = deck.board(d, 5)
+h = deck.hand(d)
+
+print(f"Cards in hand: {deck.print_cards(h)}")
+print(f"Cards on the table: {deck.print_cards(b)}")
+
+print(f"\nCombination with cards: {check_hand.combos(h, b)}")
+print(f"How many outs: {check_hand.outs()}")
+```
+
+
+----------
+
+
+## Developer
 Gimer
 
 GitHub: [link](https://github.com/windgim)
