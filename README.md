@@ -1,9 +1,5 @@
 <h1 align="center">PokerH</h1>
 
-
-----------
-
-
 # About
 
 ## What is this?
@@ -79,9 +75,6 @@ To print the combos and how many outs you have (be sure to write hand and board)
 print(check_hand.combos(h, b))
 print(check_hand.outs())
 ```
-
-
-----------
 
 
 ## Example

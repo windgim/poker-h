@@ -8,7 +8,7 @@ def readme():
 
 setup(
   name='poker-h',
-  version='1.0.1',
+  version='1.0.2',
   author='Gimer',
   author_email='bashinsky04@gmail.com',
   description='This is a library that will help you create a poker game.',

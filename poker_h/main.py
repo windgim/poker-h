@@ -45,6 +45,7 @@ class check_hand:
         clubs = 0
         spades = 0
         hearts = 0
+
         #combos
         global over_cards
         global pair
@@ -60,8 +61,9 @@ class check_hand:
         oesd = False
         flush = False
         four = False
-        royal_flush = False
-    
+        royal_flush_flush = False
+        royal_flush_straight = False
+        
         #checking variables
         identical_cards = 0
         full_house_check_set = 0
@@ -71,7 +73,11 @@ class check_hand:
         over_cards = 0
         num_of_straight = 0
         straight_check_list = []
-    
+        royal_flush_d = []
+        royal_flush_c = []
+        royal_flush_s = []
+        royal_flush_h = []
+
         #check hand
         for i in board + hand:
             #list for ranks
@@ -80,14 +86,36 @@ class check_hand:
             #check flush
             if i[0] == '♦️'[0]:
                 diamonds += 1
+
+                if i[2] == "1" or i[2] == "J" or i[2] == "Q" or i[2] == "K" or i[2] == "A":
+                    if royal_flush_d.count(i[2]) == 0:
+                        royal_flush_d.append(i[2])
+
             elif i[0] == '♠️'[0]:
                 clubs += 1
+
+                if i[2] == "1" or i[2] == "J" or i[2] == "Q" or i[2] == "K" or i[2] == "A":
+                    if royal_flush_c.count(i[2]) == 0:
+                        royal_flush_c.append(i[2]) 
+
             elif i[0] == '♣️'[0]:
                 spades += 1
+
+                if i[2] == "1" or i[2] == "J" or i[2] == "Q" or i[2] == "K" or i[2] == "A":
+                    if royal_flush_s.count(i[2]) == 0:
+                        royal_flush_s.append(i[2])
+
             elif i[0] == '♥️'[0]:
                 hearts += 1
-    
-            if diamonds >= 5 or clubs >= 5 or spades >= 5 or hearts >= 5:
+
+                if i[2] == "1" or i[2] == "J" or i[2] == "Q" or i[2] == "K" or i[2] == "A":
+                    if royal_flush_h.count(i[2]) == 0:
+                        royal_flush_h.append(i[2])
+
+            if len(royal_flush_d) == 5 or len(royal_flush_c) == 5 or len(royal_flush_s) == 5 or len(royal_flush_h) == 5:
+                royal_flush_flush = True
+
+            elif diamonds >= 5 or clubs >= 5 or spades >= 5 or hearts >= 5:
                 flush = True 
     
             card = i[2]
@@ -159,7 +187,7 @@ class check_hand:
                 
                 #check royal flush
                 if j == 14:
-                    royal_flush = True
+                    royal_flush_straight = True
     
                 break
     
@@ -172,7 +200,7 @@ class check_hand:
                 over_cards += 1
 
         #check combos
-        if royal_flush and flush:
+        if royal_flush_flush and royal_flush_straight:
             return 'Роял-флеш'
     
         elif straight and flush:
