@@ -1,4 +1,4 @@
-<h1 align="center">PokerH</h1>
+<h1 align="center">poker-h</h1>
 
 # About
 
